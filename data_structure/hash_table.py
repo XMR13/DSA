@@ -6,6 +6,9 @@ akan dimasukkan nilainya
 
 #berikut time complexity dari operation yang ada di hash tables
 first we neecd to check for sets
+get : *O(1)
+put : *O(1)
+delete: *O(1)
 
 
 """
@@ -27,7 +30,7 @@ class ArrayHashMap:
         index = key % 100
         return index
     
-    def querying(self, key):
+    def get(self, key):
         """diberikan suatu key, tentukan index dan return valuenya"""
         index_hash = self.hash_function(key)
         #and then we check at that index, if there's exist
@@ -40,7 +43,7 @@ class ArrayHashMap:
         #return pair 
         return pair
     
-    def update(self, key, value):
+    def put(self, key, value):
         """update the data at the specific index"""
         pair = Pair(key, value)
         index = self.hash_function(key)
@@ -79,29 +82,43 @@ class ArrayHashMap:
         return key_results
 
 
-#testing hash tables
-#for clarification, hash tables doesnt raelly explicityly says the number
-#of indexes it have
-hash_maps = {}
-hash_maps[100] = "oi"
-hash_maps[200] = "halo"
-hash_maps[300] = "pagi"
-hash_maps[400] = "malam"
-hash_maps[500] = "apa kabar"
+def main():
+    #mengtes open addressing
+    test_hashmap = ArrayHashMap()
+    test_hashmap.put(1,"hallo")
+    test_hashmap.put(2,"selamat pagi semuanya")
+    test_hashmap.put(3, "hallo ges, selamat sinag all")
 
-print(hash_maps)
+    #test hashmap
+    welcome = test_hashmap.get(3)
+    print(welcome.key, welcome.value)
 
-#loop over the keys
-print(f"\nprint hash maps keys")
-for i in hash_maps.keys():
-    print(i)
+    print("-------------------------------------------")
 
-#loop over the values
-print(f"\nprint hash maps values")
-for j in hash_maps.values():
-    print(j)
+    #testing hash tables
+    #for clarification, hash tables doesnt raelly explicityly says the number
+    #of indexes it have
+    hash_maps = {}
+    hash_maps[100] = "oi"
+    hash_maps[200] = "halo"
+    hash_maps[300] = "pagi"
+    hash_maps[400] = "malam"
+    hash_maps[500] = "apa kabar"
 
-#and then we can loop over the ky value pairs
-print(f"\nprint the key value paris of a hashpas")
-for i, j in hash_maps.items():
-    print(i,j)
+    #loop over the keys
+    print(f"\nprint hash maps keys")
+    for i in hash_maps.keys():
+        print(i)
+
+    #loop over the values
+    print(f"\nprint hash maps values")
+    for j in hash_maps.values():
+        print(j)
+
+    #and then we can loop over the ky value pairs
+    print(f"\nprint the key value paris of a hashpas")
+    for i, j in hash_maps.items():
+        print(i,j)
+
+if __name__ == "__main__":
+    main()

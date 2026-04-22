@@ -8,6 +8,15 @@ class Node:
     
     def __str__(self):
         return str(self.value)
+
+class DoubleNode(Node):
+    def __init__(self, value, next=None, prev=None):
+        self.value:int = value
+        self.next:Node | None = next
+        #previously 
+        self.prev:Node | None = prev
+
+        
     
 class LinkedList:
     def __init__(self):
