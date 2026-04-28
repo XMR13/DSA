@@ -22,12 +22,13 @@ class Pair:
 
 class ArrayHashMap:
     """Implementasi Hashmap dengan menggunakan struktur data array"""
-    def __init__(self):
-        self.buckets: list[Pair | None]  = [None] * 100
+    def __init__(self, size):
+        self.size = size
+        self.buckets: list[Pair | None]  = [None] * size
 
     def hash_function(self, key):
         """merupakan hash function yang akan digunakan untuk mendapatkan key"""
-        index = key % 100
+        index = key % self.size
         return index
     
     def get(self, key):
@@ -84,7 +85,7 @@ class ArrayHashMap:
 
 def main():
     #mengtes open addressing
-    test_hashmap = ArrayHashMap()
+    test_hashmap = ArrayHashMap(100)
     test_hashmap.put(1,"hallo")
     test_hashmap.put(2,"selamat pagi semuanya")
     test_hashmap.put(3, "hallo ges, selamat sinag all")
