@@ -11,7 +11,9 @@ This repo was created because i need to personally assess myself and reflect on 
 It's divided by 3 just like leetcode
 
 ### Easy Problems
-1. Leetcode <blablabal> <id> = roman to integre
+1. Roman to interger (hash table)
+2. Resultant anagram (hash table, array)
+3. Longest common prefix
 
 ### Medium Problems
 
